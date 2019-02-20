@@ -1,0 +1,67 @@
+<div id="cadastro" class="section pt-2 pb-5">
+	<div class="container">
+		<div class="row align-items-center mb-4">
+			<div class="column col-lg-6">
+				<h5>
+					<strong>
+						Listagem de usuários
+					</strong>
+				</h5>
+				<p class="m-0">
+					Escolha um usuário para visualizar os detalhes
+				</p>
+			</div>
+			<div class="column col-lg-6 text-lg-right">
+				<button class="btn btn-warning app-add-new" [routerLink]="['/cadastro']" routerLinkActive="router-link-active" >
+					Novo usuário
+				</button>
+			</div>
+		</div>
+		<div class="customers" *ngIf="clientes && clientes.length > 0">
+			<div class="card" *ngFor="let cliente of clientes; let i = index;">
+				<div class="card-body">
+					<div class="row">
+						<div class="column col-lg-4">
+							<h4 class="text">
+								<strong>{{cliente.name}}</strong>
+							</h4>
+							<p class="text">
+								{{cliente.contact.email}}
+							</p>
+						</div>
+						<div class="column col-lg-3">
+							<h4 class="text">
+								<strong>{{cliente.cpf}}</strong>
+							</h4>
+							<p class="text">
+								{{cliente.contact.tel}}
+							</p>
+						</div>
+						<div class="column col-lg-3">
+							<span class="status status-{{(cliente.status ? statusClasses[cliente.status] : 'desativado')}}"></span>	
+							<span>
+								{{cliente.status}}
+							</span>						
+						</div>
+						<div class="column col-lg-2">
+							<button [routerLink]="['cadastro', i]"
+							routerLinkActive="router-link-active" class="btn btn-outline-warning btn-block">
+								Editar
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<p>
+				Exibindo {{clientes.length}} usuários
+			</p>
+		</div>
+		
+		<div class="text-center p-5 card" *ngIf="clientes && !clientes.length > 0">
+			<h1>
+				Nenhum Usuário Cadastrado
+			</h1>
+		</div>
+	</div>
+</div>

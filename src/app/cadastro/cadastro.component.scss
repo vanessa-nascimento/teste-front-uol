@@ -1,0 +1,25 @@
+
+.form-cadastro {
+    .form-control {
+        height: 50px;
+        border-color: #8492A6;
+    }
+}
+
+input{
+    &.ng-invalid.ng-touched {
+        border-color: red!important;
+    }
+    &.ng-valid.ng-touched {
+        border-color: green!important;
+    }
+}
+
+select{
+    &.ng-invalid.ng-touched {
+        border-color: red!important;
+    }
+    &.ng-valid.ng-touched {
+        border-color: green!important;
+    }
+}

@@ -1,0 +1,56 @@
+<div id="cadastro" class="section">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="column col-lg-5">
+				<h5>
+					<strong>
+						{{(idCliente >=0 ? 'Alterar Usuário': 'Novo Usuário')}}
+					</strong>
+				</h5>
+				<p class="m-0">
+					Informe os campos a seguir para criar novo usuário:
+				</p>
+			</div>
+		</div>
+		<div class="row box-cadastro">
+			<div class="col-lg-4">
+				<form class="mt-4 form-cadastro" (ngSubmit)='cadastro()' [formGroup]='formCadastro'>
+					<input type="hidden" formControlName='_id'>
+					<div class="form-group">
+						<input type="text" autocomplete="off" class="form-control" placeholder="Nome" formControlName='name'>
+					</div>
+					<div class="form-group">
+						<input type="number" class="form-control" placeholder="CPF" formControlName='cpf'>
+					</div>
+					<div class="form-group" formGroupName="contact">
+						<input type="email" class="form-control" placeholder="E-mail" formControlName='email'>
+					</div>
+					<div class="form-group" formGroupName="contact">
+						<input type="tel" class="form-control" placeholder="Telefone" formControlName='tel'>
+					</div>
+					<div class="form-group mb-5">
+						<select class="custom-select form-control" formControlName='status'>
+							<option value="">Status</option>
+							<option value="Ativo">Ativo</option>
+							<option value="Inativo">Inativo</option>
+							<option value="Aguardando ativação">Aguardando ativação</option>
+							<option value="Desativado">Desativado</option>
+						</select>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="form-group">
+								<button type="submit" class="btn btn-cadastro btn-warning btn-block mr-3">Salvar</button>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="form-group">
+								<button [routerLink]="['/']" routerLinkActive="router-link-active"  class="btn btn-cadastro btn-outline-warning btn-block">Voltar</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

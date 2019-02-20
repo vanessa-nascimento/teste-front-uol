@@ -1,0 +1,20 @@
+
+$warning:               #E29933 !default;
+$btn-warning-color:     #fff;
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~sweetalert2/src/sweetalert2.scss';
+
+.btn {
+    min-width: 130px;
+    padding: 10px 15px;
+
+    &-warning{
+        color: $btn-warning-color;
+    }
+    &-outline-warning {
+        &:hover {
+            color: $btn-warning-color;
+        }
+    }
+}
